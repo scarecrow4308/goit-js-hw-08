@@ -5,12 +5,10 @@ const formEl = document.querySelector('.feedback-form');
 const userInfo = {};
 
 const OnFillContactFormElements = event => {
-  const { target } = event;
+  const { email, message } = formEl.elements;
 
-  const contactformValue = target.value;
-  const contactformName = target.name;
-
-  userInfo[contactformName] = contactformValue;
+  userInfo.email = email.value;
+  userInfo.message = message.value;
   localStorage.setItem(FORM_LOCAL_STORAGE_KEY, JSON.stringify(userInfo));
   console.log(userInfo);
 };
